@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Project Details - Slideshow</title>
+  <style>
+
+      .container {
+      margin: auto;
+      padding: 40px;
+      background-color: bisque;
+    }
+
+    .slideshow-container {
+      max-width: 1300px;
+      position: relative;
+      margin: auto;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    }
+
+    .slides {
+      display: none;
+      width: 100%;
+    }
+
+    .slideshow-container img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      padding: 16px;
+      color: white;
+      font-weight: bold;
+      font-size: 20px;
+      background-color: rgba(0,0,0,0.5);
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+      transform: translateY(-50%);
+    }
+
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+
+    .prev:hover, .next:hover {
+      background-color: rgba(0,0,0,0.8);
+    }
+
+    .dot-container {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .dot {
+      cursor: pointer;
+      height: 12px;
+      width: 12px;
+      margin: 0 4px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .active, .dot:hover {
+      background-color: #717171;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <button onclick="history.back()" style="margin-bottom: 20px; padding: 10px 16px; border: none; background-color: #3498db; color: white; border-radius: 6px; cursor: pointer;">
+    ← Go Back
+  </button>
+<h2 style="text-align:center;font-size: 2.5rem;">Car Park App UI Design</h2>
+
+<div class="slideshow-container">
+  <div class="slides fade">
+    <img src="images/slideshow1.png" alt="Screenshot 1">
+  </div>
+
+  <div class="slides fade">
+    <img src="images/slideshow2.png" alt="Screenshot 2">
+  </div>
+
+  <div class="slides fade">
+    <img src="images/slideshow3.png" alt="Screenshot 3">
+  </div>
+
+    <div class="slides fade">
+    <img src="images/slideshow4.png" alt="Screenshot 3">
+  </div>
+
+    <div class="slides fade">
+    <img src="images/slideshow5.png" alt="Screenshot 3">
+  </div>
+
+    <div class="slides fade">
+    <img src="images/slideshow6.png" alt="Screenshot 3">
+  </div>
+
+    <div class="slides fade">
+    <img src="images/slideshow7.png" alt="Screenshot 3">
+  </div>
+
+    <div class="slides fade">
+    <img src="images/slideshow8.png" alt="Screenshot 3">
+  </div>
+
+    <div class="slides fade">
+    <img src="images/slideshow9.png" alt="Screenshot 3">
+  </div>
+
+    <div class="slides fade">
+    <img src="images/slideshow10.png" alt="Screenshot 3">
+  </div>
+
+    <div class="slides fade">
+    <img src="images/slideshow11.png" alt="Screenshot 3">
+  </div>
+
+  <a class="prev" onclick="changeSlide(-1)">❮</a>
+  <a class="next" onclick="changeSlide(1)">❯</a>
+</div>
+
+<div class="dot-container">
+  <span class="dot" onclick="goToSlide(1)"></span>
+  <span class="dot" onclick="goToSlide(2)"></span>
+  <span class="dot" onclick="goToSlide(3)"></span>
+  <span class="dot" onclick="goToSlide(4)"></span>
+  <span class="dot" onclick="goToSlide(5)"></span>
+  <span class="dot" onclick="goToSlide(6)"></span>
+  <span class="dot" onclick="goToSlide(7)"></span>
+  <span class="dot" onclick="goToSlide(8)"></span>
+  <span class="dot" onclick="goToSlide(9)"></span>
+  <span class="dot" onclick="goToSlide(10)"></span>
+  <span class="dot" onclick="goToSlide(11)"></span>
+</div>
+
+<h2 style="text-align:center; margin-top: 40px; font-size: 2rem;">Video Demo</h2>
+
+<div style="display:flex; flex-direction: column; align-items: center; gap: 10px; margin-bottom: 50px; max-width: 1200px; margin-left: 480px">
+  <video width="100%" controls style="flex: 1;">
+    <source src="videos/IOTVideo.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <p style="text-align: center; font-size: 2.5rem; color: #2c3e50;">This video demonstrates the IoT integration in the parking system.</p>
+</div>
+
+<div style="display:flex; flex-direction: column; align-items: center; gap: 10px; margin-bottom: 50px; max-width: 1200px; margin-left: 480px">
+  <video width="100%" controls style="flex: 1;">
+    <source src="videos/User.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <p style="text-align: center; font-size: 2.5rem; color: #2c3e50;">This video showcases the user experience and app functionality.</p>
+</div>
+
+<div style="display:flex; flex-direction: column; align-items: center; gap: 10px; margin-bottom: 50px; max-width: 1200px; margin-left: 480px">
+  <video width="100%" controls style="flex: 1;">
+    <source src="videos/Admin.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <p style="text-align: center; font-size: 2.5rem; color: #2c3e50;">This video highlights the admin panel and its features.</p>
+</div>
+
+<script>
+  let slideIndex = 1;
+  showSlide(slideIndex);
+
+  setInterval(() => changeSlide(1), 5000);
+
+  function changeSlide(n) {
+    showSlide(slideIndex += n);
+  }
+
+  function goToSlide(n) {
+    showSlide(slideIndex = n);
+  }
+
+  function showSlide(n) {
+    let slides = document.getElementsByClassName("slides");
+    let dots = document.getElementsByClassName("dot");
+
+    if (n > slides.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = slides.length}
+
+    for (let i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+
+    for (let i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+    }
+
+    slides[slideIndex-1].style.display = "block";
+    dots[slideIndex-1].className += " active";
+  }
+</script>
+
+</body>
+</html>
